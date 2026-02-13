@@ -39,7 +39,7 @@
     "scripts": {
         "build": "vite --config vite.config.ts build app && bun scripts/generate.version.js",
         "build:dev": "vite --config vite.config.ts build app --base / && bun scripts/generate.version.js",
-        "build:lib": "vite build --config vite.lib.config.ts && cp index.d.ts dist/index.d.ts",
+        "build:lib": "vite build --config vite.lib.config.ts",
         "clean": "bun scripts/clean.js",
         "dev": "vite --config vite.config.ts app",
         "format": "bunx --bun biome format --fix --max-diagnostics=none",
@@ -97,6 +97,7 @@
         "tailwindcss": "^4.1.18",
         "tailwindcss-primeui": "^0.6.1",
         "unplugin-vue-components": "^31.0.0",
-        "vite": "^7.2.7"
+        "vite": "^7.2.7",
+        "vite-plugin-dts": "^4.5.4"
     }
 }

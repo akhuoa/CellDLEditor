@@ -1,4 +1,5 @@
 import * as primeVueAutoImportResolver from '@primevue/auto-import-resolver'
+import dts from 'vite-plugin-dts'
 import tailwindcssPlugin from '@tailwindcss/vite'
 import vuePlugin from '@vitejs/plugin-vue'
 
@@ -75,6 +76,10 @@ export default vite.defineConfig({
         }
     },
     plugins: [
+        dts({
+            insertTypesEntry: true
+        }),
+
         // Note: this must be in sync with vite.config.ts.
 
         tailwindcssPlugin(),
