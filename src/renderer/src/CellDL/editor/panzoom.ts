@@ -141,6 +141,10 @@ export default class PanZoom {
             for (const entry of entries) {
                 if (entry.target.id === this.#containerId) {
                     const containerSize = new Point(entry.contentRect.width, entry.contentRect.height)
+                    // Don't do anything if the container has no size...
+                    if (containerSize.x === 0 ||containerSize.y === 0) {
+                        return
+                    }
                     const viewbox = this.#currentViewbox()
                     const delta = containerSize.subtract(this.#containerSize)
                     if (Math.abs(delta.x * viewbox[3]) >= Math.abs(delta.y * viewbox[2])) {

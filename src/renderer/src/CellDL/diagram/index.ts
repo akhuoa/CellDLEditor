@@ -386,7 +386,7 @@ export class CellDLDiagram {
         // better in dark mode.
         const strokedPaths = svgDiagram.querySelectorAll(`path[stroke="${OLD_CONNECTION_COLOUR}"]`)
         for (let index = 0; index < strokedPaths.length; ++index) {
-            const path = strokedPaths[index]
+            const path = strokedPaths[index]!
             path.setAttribute('stroke', CONNECTION_COLOUR)
         }
         this.#svgDiagram = svgDiagram
