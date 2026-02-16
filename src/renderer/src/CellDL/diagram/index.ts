@@ -95,8 +95,9 @@ const NEW_DIAGRAM_URI = 'file:///tmp/new_file.celldl'
 
 //==============================================================================
 
+// These ids need to come from a schema for CellDL files...
 const CELLDL_DEFINITIONS_ID = 'celldl-svg-definitions'
-export const CELLDL_METADATA_ID = 'celldl-rdf-metadata'
+const CELLDL_METADATA_ID = 'celldl-rdf-metadata'
 const CELLDL_STYLESHEET_ID = 'celldl-svg-stylesheet'
 
 const DIAGRAM_MARGIN = 20
