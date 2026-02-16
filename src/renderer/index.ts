@@ -21,10 +21,29 @@ limitations under the License.
 import CellDLEditor from '@renderer/components/WrappedEditor.vue'
 import type { ViewState } from '@renderer/common/EditorTypes'
 
+import type * as $rdf from '@renderer/metadata'
+import { oximockRdfModule } from '@renderer/metadata/oximock'
+import { componentLibraryPlugin } from '@renderer/plugins/index'
+import { BONDGRAPH_PLUGIN_ID } from '@renderer/plugins/bondgraph'
+
+//==============================================================================
+
 export { DEFAULT_VIEW_STATE } from '@editor/editor/editguides'
 export type { EditorState, ViewState } from '@renderer/common/EditorTypes'
 
 export { version } from './package.json'
+
+//==============================================================================
+
+export type RdfInterface = {
+    oximockRdfModule: object
+    getRdfStatements: () => $rdf.Statement[]
+}
+
+export const rdfInterface: RdfInterface = {
+    oximockRdfModule: oximockRdfModule,
+    getRdfStatements: () => componentLibraryPlugin.rdfStatements(BONDGRAPH_PLUGIN_ID)
+}
 
 //==============================================================================
 

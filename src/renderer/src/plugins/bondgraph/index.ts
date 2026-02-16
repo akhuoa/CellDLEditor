@@ -68,6 +68,8 @@ import type {
 
 //==============================================================================
 
+export const BONDGRAPH_PLUGIN_ID = 'bondgraph-components'
+
 const BONDGRAPH_FRAMEWORK = 'https://bg-rdf.org/ontologies/bondgraph-framework'
 
 //==============================================================================
@@ -290,7 +292,7 @@ const ELEMENT_VALUE_INDEX = 3
 //==============================================================================
 
 export class BondgraphPlugin implements PluginInterface {
-    readonly id: string = 'bondgraph-components'
+    readonly id: string = BONDGRAPH_PLUGIN_ID
 
     #baseComponents: Map<string, BGBaseComponent> = new Map()                       // Indexed by component.type
     #baseComponentToElementTemplates: Map<string, ElementTemplate[]> = new Map()    // Indexed by component.type
@@ -319,6 +321,10 @@ export class BondgraphPlugin implements PluginInterface {
         this.#loadBaseComponents()
         this.#assignTemplates()
         this.#loadTemplateParameters()
+    }
+
+    rdfStatements(): $rdf.Statement[] {
+        return this.#rdfStore.statements()
     }
 
     //==========================================================================

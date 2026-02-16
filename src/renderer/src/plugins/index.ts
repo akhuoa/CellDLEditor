@@ -43,6 +43,7 @@ import { STYLING_GROUP } from '@editor/components/properties'
 import type {
     MetadataPropertiesMap,
     RdfStore,
+    Statement,
     SubjectType
 } from '@renderer/metadata/index'
 import { CELLDL_URI, fragment, SPARQL_PREFIXES } from '@renderer/metadata/index'
@@ -61,6 +62,7 @@ export interface PluginInterface {
 
     componentLibrary: ComponentLibrary
     getPropertyGroups: () => PropertyGroup[]
+    rdfStatements: () => Statement[]
     styleRules: () => string
     svgDefinitions: () => string
 
@@ -84,7 +86,7 @@ export interface PluginInterface {
 
 //==============================================================================
 
-class ComponentLibraryPlugin {
+export class ComponentLibraryPlugin {
     static #instance: ComponentLibraryPlugin | null = null
 
     #app: vue.App|undefined = undefined
@@ -113,6 +115,13 @@ class ComponentLibraryPlugin {
             app.provide<vue.Ref<ComponentLibrary[]>>('componentLibraries', this.#componentLibrariesRef)
             this.#app = app
         }
+    }
+
+    rdfStatements(pluginId: string): Statement[] {
+        if (this.#registeredPlugins.has(pluginId)) {
+            return this.#registeredPlugins.get(pluginId)!.rdfStatements()
+        }
+        return []
     }
 
     registerPlugin(plugin: PluginInterface) {
