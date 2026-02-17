@@ -1,4 +1,4 @@
-name: Publish the Editor CellDL as a npm package
+name: Publish the CellDL Editor as a npm package
 on:
   workflow_dispatch:
 
