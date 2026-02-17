@@ -563,8 +563,8 @@ export class CellDLEditor {
         }
     }
 
-    #componentTemplateSelectedEvent(event: CustomEvent) {
-        this.#currentTemplateDetails = event.detail
+    #componentTemplateSelectedEvent(event: Event) {
+        this.#currentTemplateDetails = (<CustomEvent>event).detail
     }
 
     #addComponentTemplate(eventPosition: PointLike, details: TemplateEventDetails, dragged=false) {
