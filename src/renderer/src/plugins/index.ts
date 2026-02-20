@@ -110,7 +110,7 @@ export class ComponentLibraryPlugin {
         return ComponentLibraryPlugin.#instance
     }
 
-    install(app: vue.App, _options: object)  {
+    install(app: vue.App, _options: object|undefined=undefined)  {
         if (!this.#app) {
             app.provide<vue.Ref<ComponentLibrary[]>>('componentLibraries', this.#componentLibrariesRef)
             this.#app = app
