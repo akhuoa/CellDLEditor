@@ -116,7 +116,6 @@ import '../assets/app.css'
 
 import AboutDialog from './dialogs/AboutDialog.vue'
 
-import CellDLEditor from '../../../index'
 import { DEFAULT_VIEW_STATE } from '../../../index'
 import type { CellDLEditorCommand, EditorData, Theme } from '../../../index'
 import type { EditorState, ViewState } from '../../../index'
@@ -125,6 +124,7 @@ import { SHORT_DELAY, TOAST_LIFE } from '../common/constants'
 import { isCompatibleBrowser } from '../common/common'
 import * as version from '../common/version'
 import * as vueCommon from '../common/vueCommon'
+import * as $rdf from '@celldl/editor-rdf'
 
 //==============================================================================
 
@@ -137,39 +137,22 @@ const props = defineProps<IEditorAppProps>()
 
 //==============================================================================
 
-import { alert } from '@editor/editor/alerts'
-
 const loadingMessage = vue.ref<string>('Loading CellDL editor')
 
-const pythonOk = !props.noPython && isCompatibleBrowser()
+// We need to load the RDF module before using the Cell;DL Editor component
 
-if (pythonOk) {
-    vue.nextTick().then(async () => {
-        //initialisePython((msg: string) => {
-        //    loadingMessage.value = msg
-        //})
-    })
-}
-loadingMessage.value = ''
-alert.info('Editor ready...')
+const CellDLEditor = vue.defineAsyncComponent(async () => {
+    await $rdf.initialise()
+
+    loadingMessage.value = ''
+    console.log('Editor ready...')
+
+    return import('../../../index')
+})
 
 // We are now fully loaded, so start checking for a newer version of the editor
 
-version.startCheck();
-
-//==============================================================================
-
-/*
-import { rdfTest, testBg2cellml } from '../../../src/bg2cellml/index'
-
-async function testCellML() {
-    await testBg2cellml()
-}
-
-async function testRDF() {
-    await rdfTest()
-}
-*/
+version.startCheck()
 
 //==============================================================================
 //==============================================================================
