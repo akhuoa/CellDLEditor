@@ -1061,8 +1061,8 @@ export class BondgraphPlugin implements PluginInterface {
                             componentTemplate.name = label.value
                         }
                         component = new BGBaseComponent(componentTemplate,
-                                        label ? label.value : getCurie(element.value),
                                         base.value)
+                                        label ? label.value : $rdf.getCurie(element.value),
                         this.#baseComponents.set(componentTemplate.type, component)
                     }
                     componentTemplate.component = component
