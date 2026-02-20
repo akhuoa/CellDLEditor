@@ -114,16 +114,17 @@ import { useToast } from 'primevue/usetoast';
 
 import '../assets/app.css'
 
-import AboutDialog from './dialogs/AboutDialog.vue'
-
-import { DEFAULT_VIEW_STATE } from '../../../index'
-import type { CellDLEditorCommand, EditorData, Theme } from '../../../index'
-import type { EditorState, ViewState } from '../../../index'
-
-import { SHORT_DELAY, TOAST_LIFE } from '../common/constants'
+import { SHORT_DELAY } from '../common/constants'
 import { isCompatibleBrowser } from '../common/common'
 import * as version from '../common/version'
 import * as vueCommon from '../common/vueCommon'
+
+import AboutDialog from './dialogs/AboutDialog.vue'
+
+import type { CellDLEditorCommand, EditorData, Theme } from '../../../index'
+import type { EditorState, ViewState } from '../../../index'
+import { DEFAULT_VIEW_STATE } from '../../../index'
+
 import * as $rdf from '@celldl/editor-rdf'
 
 //==============================================================================
