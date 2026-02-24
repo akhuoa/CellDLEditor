@@ -3,7 +3,7 @@
 
 import * as vue from 'vue';
 
-import packageJson from '../../../package.json' with { type: 'json' };
+import packageJson from '../../package.json' with { type: 'json' };
 
 import { electronApi } from './electronApi.ts';
 

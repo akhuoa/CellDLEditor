@@ -1,6 +1,6 @@
 {
-    "version": "0.20260217.1",
     "name": "@celldl/editor-app",
+    "version": "0.20260224.0",
     "author": {
         "name": "David Brooks",
         "email": "d.brooks@auckland.ac.nz"
@@ -38,13 +38,13 @@
     },
     "scripts": {
         "build": "vite --config vite.config.ts build app && bun scripts/generate.version.js",
-        "build:dev": "vite --config vite.config.ts build app --base / && bun scripts/generate.version.js",
+        "build:dev": "vite --config vite.config.ts build --base /CellDLEditor/ && bun scripts/generate.version.js",
         "clean": "bun scripts/clean.js",
-        "dev": "vite --config vite.config.ts app",
+        "dev": "vite --config vite.config.ts",
         "format": "bunx --bun biome format --fix --max-diagnostics=none",
         "format:check": "bunx --bun biome format --max-diagnostics=none",
         "lint": "bunx --bun biome lint --fix --error-on-warnings --max-diagnostics=none",
-        "start": "cd app && bun run build:dev && vite preview",
+        "start": "bun run build:dev && vite preview --open",
         "version:new": "bun scripts/version.js"
     },
     "bun": {
@@ -54,7 +54,7 @@
     },
     "dependencies": {
         "@atomic-ehr/ucum": "^0.2.5",
-        "@celldl/editor-rdf": "/Users/dbro078/CellDL/CellDLEditorRDF/celldl-editor-rdf-0.20260220.1.tgz",
+        "@celldl/editor": "../../../Component/celldl-editor-0.20260224.0.tgz",
         "@ctrl/tinycolor": "^4.2.0",
         "@mathjax/src": "^4.0.0",
         "@primeuix/themes": "^2.0.2",

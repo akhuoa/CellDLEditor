@@ -112,6 +112,30 @@ import { useToast } from 'primevue/usetoast';
 
 //==============================================================================
 
+import '@celldl/editor/style.css'
+
+import type {
+    CellDLEditorCommand,
+    EditorData,
+    EditorState,
+    Theme,
+    ViewState
+} from '@celldl/editor'
+
+import { DEFAULT_VIEW_STATE } from '@celldl/editor'  // But @celldl/editor is a dynamic import??
+
+import * as $rdf from '@celldl/editor-rdf'
+
+import {
+    celldl2cellml,
+    initialisePython,
+    type PyodideAPI,
+    type RdfInterface
+} from '@celldl/editor-python-tools'
+import { loadInBrowser } from '@celldl/editor-python-tools/web'
+
+//==============================================================================
+
 import '../assets/app.css'
 
 import { SHORT_DELAY } from '../common/constants'
@@ -120,12 +144,6 @@ import * as version from '../common/version'
 import * as vueCommon from '../common/vueCommon'
 
 import AboutDialog from './dialogs/AboutDialog.vue'
-
-import type { CellDLEditorCommand, EditorData, Theme } from '../../../index'
-import type { EditorState, ViewState } from '../../../index'
-import { DEFAULT_VIEW_STATE } from '../../../index'
-
-import * as $rdf from '@celldl/editor-rdf'
 
 //==============================================================================
 
@@ -139,16 +157,36 @@ const props = defineProps<IEditorAppProps>()
 //==============================================================================
 
 const loadingMessage = vue.ref<string>('Loading CellDL editor')
+let pythonInitialised = false
 
 // We need to load the RDF module before using the Cell;DL Editor component
 
 const CellDLEditor = vue.defineAsyncComponent(async () => {
     await $rdf.initialise()
 
-    loadingMessage.value = ''
-    console.log('Editor ready...')
+    if (!props.noPython) {
+        vue.nextTick(async () => {      // To see loading messages ??
+            const rdfI: RdfInterface = {
+                getRdfStatements: $rdf.bgRdfStatements,
+                oximockRdfModule: $rdf.oxiRdfModule
+            }
+            await loadInBrowser().then(async (pyApi: PyodideAPI) => {
+                console.log(pyApi)
+                await initialisePython(pyApi, rdfI, async (msg: string) => {
+                    console.log(msg)
+                    loadingMessage.value = msg
+                })
+            })
+            loadingMessage.value = ''
+            console.log('Editor ready...')
+            pythonInitialised = true
+        })
+    } else {
+        loadingMessage.value = ''
+        console.log('Editor ready...')
+    }
 
-    return import('../../../index')
+    return import('@celldl/editor')
 })
 
 // We are now fully loaded, so start checking for a newer version of the editor
@@ -319,7 +357,7 @@ vueusecore.useEventListener(document, 'file-edited', (_: Event) => {
 
 async function onEditorData(data: EditorData) {
     if (data.kind === 'export') {
-        if (pythonOk) {
+        if (pythonInitialised) {
             await saveCellML(data.data)
         }
     } else if (data.kind === 'save-as' || !currentFileHandle) {
@@ -540,7 +578,6 @@ async function saveCellML(celldl: string) {
         suggestedName: fileName
     }
     const fileHandle = await window.showSaveFilePicker(options).catch(() => {})
-/*
     if (fileHandle) {
         const cellmlObject = celldl2cellml(`https://celldl.org/cellml/${fileHandle.name}`, celldl)
         if (cellmlObject.cellml) {
@@ -560,7 +597,6 @@ async function saveCellML(celldl: string) {
             window.alert('Unexpected exception generating CellML...')
         }
     }
-*/
 }
 
 //==============================================================================

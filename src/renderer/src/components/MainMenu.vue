@@ -25,9 +25,11 @@ import type { MenuItem, MenuItemCommandEvent } from 'primevue/menuitem'
 
 //==============================================================================
 
+import type { EditorState, ViewState } from '@celldl/editor'
+
 import * as common from '../common/common'
 
-import type { EditorState, ViewState } from '@renderer/common/EditorTypes'
+//==============================================================================
 
 const props = defineProps<{
     editorState: EditorState

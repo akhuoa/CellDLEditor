@@ -7,6 +7,8 @@ import url from 'node:url'
 import vitePlugin from 'unplugin-vue-components/vite'
 import * as vite from 'vite'
 
+import { pyodidePlugin } from '@celldl/editor-python-tools/vite'
+
 const _dirname = path.dirname(url.fileURLToPath(import.meta.url))
 
 export default vite.defineConfig({
@@ -33,6 +35,8 @@ export default vite.defineConfig({
         ]
     },
     plugins: [
+        pyodidePlugin(),
+
         // Note: this must be in sync with electron.vite.config.ts.
 
         tailwindcssPlugin(),
@@ -49,7 +53,7 @@ export default vite.defineConfig({
     },
     server: {
         fs: {
-            allow: [path.join(_dirname, '../..')]
+            allow: [path.join(import.meta.dirname, '../..')]
         }
     }
 })

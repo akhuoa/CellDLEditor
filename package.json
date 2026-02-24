@@ -1,6 +1,6 @@
 {
-    "version": "0.20260217.1",
     "name": "@celldl/editor-app",
+    "version": "0.20260224.0",
     "author": {
         "name": "David Brooks",
         "email": "d.brooks@auckland.ac.nz"
@@ -51,7 +51,8 @@
     },
     "dependencies": {
         "@atomic-ehr/ucum": "^0.2.5",
-        "@celldl/editor-rdf": "/Users/dbro078/CellDL/CellDLEditorRDF/celldl-editor-rdf-0.20260220.1.tgz",
+        "@celldl/editor-python-tools": "../PythonTools/celldl-editor-python-tools-0.20260224.0.tgz",
+        "@celldl/editor-rdf": "../RDFTools/celldl-editor-rdf-0.20260224.0.tgz",
         "@ctrl/tinycolor": "^4.2.0",
         "@mathjax/src": "^4.0.0",
         "@primeuix/themes": "^2.0.2",

@@ -4,8 +4,8 @@
     "": {
       "name": "@abi-software/celldl-editor",
       "dependencies": {
+        "@celldl/editor": "../../../Component/celldl-editor-0.20260224.0.tgz",
         "@atomic-ehr/ucum": "^0.2.5",
-        "@celldl/editor-rdf": "/Users/dbro078/CellDL/CellDLEditorRDF/celldl-editor-rdf-0.20260220.1.tgz",
         "@ctrl/tinycolor": "^4.2.0",
         "@mathjax/src": "^4.0.0",
         "@primeuix/themes": "^2.0.2",
@@ -76,7 +76,9 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.3.11", "", { "os": "win32", "cpu": "x64" }, "sha512-43VrG813EW+b5+YbDbz31uUsheX+qFKCpXeY9kfdAx+ww3naKxeVkTD9zLIWxUPfJquANMHrmW3wbe/037G0Qg=="],
 
-    "@celldl/editor-rdf": ["@celldl/editor-rdf@/Users/dbro078/CellDL/CellDLEditorRDF/celldl-editor-rdf-0.20260220.1.tgz", { "dependencies": { "@jeswr/pretty-turtle": "^1.8.2", "oxigraph": "^0.5.2" } }],
+    "@celldl/editor": ["@celldl/editor@../../../Component/celldl-editor-0.20260224.0.tgz", { "dependencies": { "@atomic-ehr/ucum": "^0.2.5", "@celldl/editor-rdf": "/Users/dbro078/CellDL/Editor/RDFTools/celldl-editor-rdf-0.20260224.0.tgz", "@ctrl/tinycolor": "^4.2.0", "@mathjax/src": "^4.0.0", "@primeuix/themes": "^2.0.2", "@primevue/auto-import-resolver": "4.2.5", "@vueuse/core": "14.1.0", "buffer": "^6.0.3", "flatbush": "^4.5.0", "isomorphic-fetch": "^3.0.0", "jsonschema": "^1.5.0", "primeicons": "^7.0.0", "primevue": "4.2.5", "rbush": "^4.0.1", "svg-intersections": "github:dbrnz/svg-intersections#fix-numbers", "svg-path-commander": "^2.1.11", "systeminformation": "^5.27.11", "transformation-matrix": "^3.1.0", "ua-parser-js": "^2.0.8", "vue": "3.4.21", "vue-tippy": "^6.7.1" }, "peerDependencies": { "@primeuix/themes": "^2.0.2", "primevue": "4.2.5", "vue": "3.4.21" } }],
+
+    "@celldl/editor-rdf": ["@celldl/editor-rdf@/Users/dbro078/CellDL/Editor/RDFTools/celldl-editor-rdf-0.20260224.0.tgz", { "dependencies": { "@jeswr/pretty-turtle": "^1.8.2", "oxigraph": "^0.5.2" } }],
 
     "@ctrl/tinycolor": ["@ctrl/tinycolor@4.2.0", "", {}, "sha512-kzyuwOAQnXJNLS9PSyrk0CWk35nWJW/zl/6KvnTBMFK65gm7U1/Z5BqjxeapjZCIhQcM/DsrEmcbRwDyXyXK4A=="],
 
@@ -627,6 +629,8 @@
     "wicked-good-xpath": ["wicked-good-xpath@1.3.0", "", {}, "sha512-Gd9+TUn5nXdwj/hFsPVx5cuHHiF5Bwuc30jZ4+ronF1qHK5O7HD0sgmXWSEgwKquT3ClLoKPVbO6qGwVwLzvAw=="],
 
     "with": ["with@7.0.2", "", { "dependencies": { "@babel/parser": "^7.9.6", "@babel/types": "^7.9.6", "assert-never": "^1.2.1", "babel-walk": "3.0.0-canary-5" } }, "sha512-RNGKj82nUPg3g5ygxkQl0R937xLyho1J24ItRCBTr/m1YnZkzJy1hUiHUJrc/VlsDQzsCnInEGSg3bci0Lmd4w=="],
+
+    "@celldl/editor/svg-intersections": ["svg-intersections@github:dbrnz/svg-intersections#816f1a3", { "dependencies": { "kld-affine": "2.0.0", "kld-polynomial": "0.3.0" } }, "dbrnz-svg-intersections-816f1a3"],
 
     "@primeuix/styled/@primeuix/utils": ["@primeuix/utils@0.6.3", "", {}, "sha512-/SLNQSKQ73WbBIsflKVqbpVjCfFYvQO3Sf1LMheXyxh8JqxO4M63dzP56wwm9OPGuCQ6MYOd2AHgZXz+g7PZcg=="],
 

@@ -4,8 +4,9 @@
     "": {
       "name": "@abi-software/celldl-editor",
       "dependencies": {
-        "@celldl/editor-rdf": "/Users/dbro078/CellDL/CellDLEditorRDF/celldl-editor-rdf-0.20260220.1.tgz",
         "@atomic-ehr/ucum": "^0.2.5",
+        "@celldl/editor-python-tools": "../PythonTools/celldl-editor-python-tools-0.20260224.0.tgz",
+        "@celldl/editor-rdf": "../RDFTools/celldl-editor-rdf-0.20260224.0.tgz",
         "@ctrl/tinycolor": "^4.2.0",
         "@mathjax/src": "^4.0.0",
         "@primeuix/themes": "^2.0.2",
@@ -120,7 +121,9 @@
 
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.3.11", "", { "os": "win32", "cpu": "x64" }, "sha512-43VrG813EW+b5+YbDbz31uUsheX+qFKCpXeY9kfdAx+ww3naKxeVkTD9zLIWxUPfJquANMHrmW3wbe/037G0Qg=="],
 
-    "@celldl/editor-rdf": ["@celldl/editor-rdf@/Users/dbro078/CellDL/CellDLEditorRDF/celldl-editor-rdf-0.20260220.1.tgz", { "dependencies": { "@jeswr/pretty-turtle": "^1.8.2", "oxigraph": "^0.5.2" } }],
+    "@celldl/editor-python-tools": ["@celldl/editor-python-tools@../PythonTools/celldl-editor-python-tools-0.20260224.0.tgz", { "dependencies": { "ws": "^8.19.0" } }],
+
+    "@celldl/editor-rdf": ["@celldl/editor-rdf@../RDFTools/celldl-editor-rdf-0.20260224.0.tgz", { "dependencies": { "@jeswr/pretty-turtle": "^1.8.2", "oxigraph": "^0.5.2" } }],
 
     "@ctrl/tinycolor": ["@ctrl/tinycolor@4.2.0", "", {}, "sha512-kzyuwOAQnXJNLS9PSyrk0CWk35nWJW/zl/6KvnTBMFK65gm7U1/Z5BqjxeapjZCIhQcM/DsrEmcbRwDyXyXK4A=="],
 
@@ -1187,6 +1190,8 @@
     "wrap-ansi-cjs": ["wrap-ansi@7.0.0", "", { "dependencies": { "ansi-styles": "^4.0.0", "string-width": "^4.1.0", "strip-ansi": "^6.0.0" } }, "sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q=="],
 
     "wrappy": ["wrappy@1.0.2", "", {}, "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="],
+
+    "ws": ["ws@8.19.0", "", { "peerDependencies": { "bufferutil": "^4.0.1", "utf-8-validate": ">=5.0.2" }, "optionalPeers": ["bufferutil", "utf-8-validate"] }, "sha512-blAT2mjOEIi0ZzruJfIhb3nps74PRWTCz1IjglWEEpQl5XS/UNama6u2/rjFkDDouqr4L67ry+1aGIALViWjDg=="],
 
     "xmlbuilder": ["xmlbuilder@15.1.1", "", {}, "sha512-yMqGBqtXyeN1e3TGYvgNgDVZ3j84W4cwkOXQswghol6APgZWaff9lnbvN7MHYJOiXsvGPXtjTYJEiC9J2wv9Eg=="],
 
