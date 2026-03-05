@@ -28,8 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 1
-          submodules: recursive
+          fetch-depth: 0
 
       - name: Install bun
         uses: oven-sh/setup-bun@v2
