@@ -28,11 +28,7 @@ export default vite.defineConfig({
     optimizeDeps: {
         esbuildOptions: {
             target: 'esnext'
-        },
-        exclude: [
-            '*.wasm',
-            '*.whl'
-        ]
+        }
     },
     plugins: [
         pyodidePlugin(),
