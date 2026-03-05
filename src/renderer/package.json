@@ -37,14 +37,13 @@
         "./style.css": "./dist/CellDLEditor.css"
     },
     "scripts": {
-        "build": "vite --config vite.config.ts build app && bun scripts/generate.version.js",
-        "build:dev": "vite --config vite.config.ts build --base /CellDLEditor/ && bun scripts/generate.version.js",
+        "build": "vite --config vite.config.ts build --base /CellDLEditor/ && bun scripts/generate.version.js",
         "clean": "bun scripts/clean.js",
         "dev": "vite --config vite.config.ts",
         "format": "bunx --bun biome format --fix --max-diagnostics=none",
         "format:check": "bunx --bun biome format --max-diagnostics=none",
         "lint": "bunx --bun biome lint --fix --error-on-warnings --max-diagnostics=none",
-        "start": "bun run build:dev && vite preview --open",
+        "start": "bun run build && vite preview --open",
         "version:new": "bun scripts/version.js"
     },
     "bun": {

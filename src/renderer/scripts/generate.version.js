@@ -13,7 +13,7 @@ const { version } = packageJson;
 
 // Make sure that the dist/assets folder exists.
 
-const distAssetsPath = path.join(__dirname, '../app/dist/assets');
+const distAssetsPath = path.join(__dirname, '../dist/assets');
 
 if (!fs.existsSync(distAssetsPath)) {
   fs.mkdirSync(distAssetsPath, { recursive: true });

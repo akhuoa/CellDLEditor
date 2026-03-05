@@ -26,7 +26,7 @@
     "scripts": {
         "archive:web": "bun src/renderer/scripts/archive.web.js",
         "build": "electron-vite build",
-        "build:web": "cd ./src/renderer && vite --config vite.config.ts build app && bun scripts/generate.version.js",
+        "build:web": "cd ./src/renderer && vite --config vite.config.ts build && bun scripts/generate.version.js",
         "clean": "bun src/renderer/scripts/clean.js",
         "debug": "electron-vite --inspect --sourcemap dev --watch",
         "dev": "electron-vite dev --watch",
